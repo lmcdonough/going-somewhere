@@ -1,10 +1,10 @@
 {
   // Disable GitHub Copilot in this workspace
-  "github.copilot.enable": false,
-  "github.copilot.inlineSuggest.enable": false,
+  "github.copilot": {
+    "enable": false
+  },
 
   // Go extension / gopls: avoid offering completions for unimported packages
-  "go.autocompleteUnimportedPackages": false,
   "gopls": {
     "completeUnimported": false
   },
