@@ -1,0 +1,100 @@
+{
+  // Beginner-friendly Go debugging presets for VS Code
+  // Docs: VS Code Go debugging & Delve
+  // - https://github.com/golang/vscode-go/wiki/debugging
+  // - https://code.visualstudio.com/docs/languages/go
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Run the main package at the workspace root
+      "name": "Go: Launch Package",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      // Show more locals and globals in variables view
+      "showGlobalVariables": true
+    },
+    {
+      // Run the currently open file's package
+      "name": "Go: Launch Current File Package",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${fileDirname}",
+      "cwd": "${fileDirname}",
+      "console": "integratedTerminal"
+    },
+    {
+      // Launch package with custom args (edit args as needed)
+      "name": "Go: Launch Package (with args)",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}",
+      "args": ["--help"],
+      "console": "integratedTerminal",
+      // Example of passing environment variables
+      "env": {
+        "PORT": "8080"
+      }
+    },
+    {
+      // Run tests in the entire module/workspace
+      "name": "Go: Test Current Module",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      // Run tests in the currently open file's package
+      "name": "Go: Test Current File's Package",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${fileDirname}",
+      "cwd": "${fileDirname}",
+      "console": "integratedTerminal"
+    },
+    {
+      // Run tests with the race detector enabled
+      "name": "Go: Test (race)",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "buildFlags": "-race"
+    },
+    {
+      // Attach to a local running Go process (choose PID)
+      "name": "Go: Attach to Local Process",
+      "type": "go",
+      "request": "attach",
+      "processId": "${command:pickProcess}",
+      // Optional: where the program was launched from
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      // Attach to a headless Delve server (remote or container)
+      // Start server remotely with: dlv --listen=:2345 --headless=true --api-version=2 exec ./your-binary
+      "name": "Go: Attach to Delve (remote)",
+      "type": "go",
+      "request": "attach",
+      "mode": "remote",
+      "host": "127.0.0.1",
+      "port": 2345,
+      // Map the remote source path to local workspace if paths differ
+      // "remotePath": "/app",
+      // "cwd": "${workspaceFolder}"
+      "showGlobalVariables": true
+    }
+  ]
+}
