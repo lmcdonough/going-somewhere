@@ -1,14 +1,45 @@
 {
+  // Disable GitHub Copilot in this workspace
+  "github.copilot.enable": false,
+  "github.copilot.inlineSuggest.enable": false,
+
+  // Go extension / gopls: avoid offering completions for unimported packages
+  "go.autocompleteUnimportedPackages": false,
+  "gopls": {
+    "completeUnimported": false
+  },
+
+  // Per-language editor settings for Go: turn off all suggestion pathways
   "[go]": {
+    // disable automatic quick suggestions (typing) completely
     "editor.quickSuggestions": {
       "other": false,
       "comments": false,
       "strings": false
     },
+    // don't trigger suggestions on characters like '.' or '('
     "editor.suggestOnTriggerCharacters": false,
+    // disable inline ghost-text suggestions
     "editor.inlineSuggest.enabled": false,
+    // don't accept suggestions with Enter
     "editor.acceptSuggestionOnEnter": "off",
+    // hide snippet and word suggestions
     "editor.suggest.showSnippets": false,
-    "editor.suggest.showWords": false
+    "editor.suggest.showWords": false,
+    // explicitly hide other suggestion kinds
+    "editor.suggest.showMethods": false,
+    "editor.suggest.showFunctions": false,
+    "editor.suggest.showConstructors": false,
+    "editor.suggest.showFields": false,
+    "editor.suggest.showVariables": false,
+    "editor.suggest.showClasses": false,
+    "editor.suggest.showModules": false,
+    "editor.suggest.showProperties": false,
+    "editor.suggest.showUnits": false,
+    "editor.suggest.showKeywords": false,
+    "editor.suggest.showFiles": false,
+    "editor.suggest.showReferences": false,
+    "editor.suggest.showOperators": false,
+    "editor.suggest.showTypeParameters": false
   }
 }
