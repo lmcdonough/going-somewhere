@@ -1,8 +1,10 @@
 {
-  // Disable GitHub Copilot in this workspace
-  "github.copilot": {
-    "enable": false
+  // Disable GitHub Copilot globally in this workspace
+  "github.copilot.enable": {
+    // Set to false to disable Copilot globally in this workspace
+    "enabled": false
   },
+  "editor.inlineSuggest.enabled": false,
 
   // Go extension / gopls: avoid offering completions for unimported packages
   "gopls": {
@@ -19,7 +21,7 @@
     },
     // don't trigger suggestions on characters like '.' or '('
     "editor.suggestOnTriggerCharacters": false,
-    // disable inline ghost-text suggestions
+    // disable inline ghost-text suggestions (including Copilot)
     "editor.inlineSuggest.enabled": false,
     // don't accept suggestions with Enter
     "editor.acceptSuggestionOnEnter": "off",
