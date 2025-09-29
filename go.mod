@@ -1,3 +1,3 @@
-module example.com/basics-practice
+module example.com/bank
 
 go 1.25.1
